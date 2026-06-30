@@ -4,15 +4,13 @@ import java.util.Scanner;
 
 
 public class AnimalInputValidator {
-    private static final Scanner scanner = new Scanner(System.in);
-
     /**
      * Reads and validates an integer input from the user.
      *
      * @param fieldName Name of the field being validated for error message
      * @return a valid non-negative integer entered by the user
      */
-    public static int getValidInt(String fieldName) {
+    public static int getValidInt(Scanner scanner,String fieldName) {
         while (true) {
             String input = scanner.nextLine().trim();
 
@@ -27,7 +25,6 @@ public class AnimalInputValidator {
                 return value;
             } catch (NumberFormatException e) {
                 System.out.println(fieldName + " must be a valid number. Try again:");
-                continue;
             }
         }
     }
@@ -39,22 +36,15 @@ public class AnimalInputValidator {
      * @param fieldName Name of the field being validated for error message
      * @return a valid string entered by the user
      */
-    public static String getValidString(String fieldName) {
+    public static String getValidString(Scanner scanner,String fieldName) {
         while (true) {
             String input = scanner.nextLine().trim();
-            try {
-                String value = String.valueOf(input);
-
-                if (value.isEmpty()) {
-                    System.out.println(fieldName + " cannot be empty. Try again:");
-                    continue;
-                }
-
-                return value;
-            } catch (Exception e) {
-                System.out.println("Invalid input. Try again:");
+            if (input.isEmpty()) {
+                System.out.println(fieldName + " cannot be empty. Try again:");
                 continue;
             }
+
+            return input;
         }
     }
 }

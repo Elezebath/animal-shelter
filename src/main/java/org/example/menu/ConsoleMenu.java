@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleMenu {
+    private static final Scanner scanner = new Scanner(System.in);
     private final Shelter<Animal> shelter;
     public ConsoleMenu(Shelter<Animal> shelter) {
         this.shelter = shelter;
@@ -18,7 +19,7 @@ public class ConsoleMenu {
             printMenu();
 
             System.out.print("Select your option: ");
-            int choice = AnimalInputValidator.getValidInt("Menu option");
+            int choice = AnimalInputValidator.getValidInt(scanner,"Menu option");
 
             switch(choice) {
                 case 1 :
@@ -30,7 +31,7 @@ public class ConsoleMenu {
                     break;
                 case 3 :
                     System.out.print("Enter the species: ");
-                    String species = AnimalInputValidator.getValidString("Species");
+                    String species = AnimalInputValidator.getValidString(scanner,"Species");
                     List<Animal> result = shelter.findBySpecies(species);
                     printAnimalList(result, "No animals found for the specified species.");
                     break;
@@ -40,7 +41,7 @@ public class ConsoleMenu {
                     break;
                 case 5 :
                     System.out.print("Enter ID of the animal: ");
-                    shelter.markAsAdopted (AnimalInputValidator.getValidString("ID"));
+                    shelter.markAsAdopted (AnimalInputValidator.getValidString(scanner,"ID"));
                     break;
                 case 0:
                     System.out.println("===========END=========");
@@ -78,13 +79,13 @@ public class ConsoleMenu {
         // get animal information
         System.out.println("Enter the following information: ");
         System.out.println("Species: ");
-        String species = AnimalInputValidator.getValidString("Species");
+        String species = AnimalInputValidator.getValidString(scanner,"Species");
 
         System.out.println("Name: ");
-        String name = AnimalInputValidator.getValidString("Name");
+        String name = AnimalInputValidator.getValidString(scanner,"Name");
 
         System.out.println("Age: ");
-        int age = AnimalInputValidator.getValidInt("Age");
+        int age = AnimalInputValidator.getValidInt(scanner,"Age");
         Animal animal;
 
         switch (species) {
@@ -98,7 +99,6 @@ public class ConsoleMenu {
         }
         shelter.addAnimal(animal);
         System.out.println(name + " [" + species +  "] added to the shelter successfully");
-        return;
     }
 
     private void printMenu(){
