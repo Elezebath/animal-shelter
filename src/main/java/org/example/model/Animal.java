@@ -1,5 +1,8 @@
 package org.example.model;
 
+import lombok.Getter;
+
+@Getter
 public sealed abstract class Animal permits Dog,Cat,Bird {
     private final AnimalId id;
     private String name;
@@ -13,24 +16,12 @@ public sealed abstract class Animal permits Dog,Cat,Bird {
         this.adoptionStatus = AdoptionStatus.AVAILABLE;
     }
 
-    public AnimalId getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public AdoptionStatus getAdoptionStatus() {
-        return adoptionStatus;
-    }
-
     public void markAsAdopted(){
-        this.adoptionStatus = AdoptionStatus.ADOPTED;
+        if(this.adoptionStatus == AdoptionStatus.AVAILABLE) {
+            this.adoptionStatus = AdoptionStatus.ADOPTED;
+        } else {
+            System.out.println("This animal has already been adopted.");
+        }
     }
 
     public abstract String getSpecies();
