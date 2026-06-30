@@ -1,47 +1,21 @@
-# Practical Task: Animal Shelter Console App
+# Animal Shelter Console Application
 
-Starter project for M3A practical task: Create a simple Java console application for managing animals in an animal shelter.
+A Java console application for managing animals in an animal shelter. This project was completed as part of the **M3A Practical Task** and demonstrates object-oriented programming principles, Java generics, and modern Java features.
 
-## Task
-Complete all of the 'TODO' portions of the code. Finished application should support:
-- Adding a new animal
-- Listing all animals
-- Searching animals by species
-- Marking an animal as adopted
-- Displaying only available animals
+## Features
 
-## OOP Requirements
-- Class anatomy: fields, constructors, methods
-- Object isntantiation and usage
-- Constructor overloading
-- Immutable class usage (AnimalId)
-- Lombok usage for reducing boilerplate
-- A basic sealed class hierarchy
-- Generic (Shelter<T>) class that stores animals
+The application supports the following operations:
 
-## Project Structure
-``` text
-src
-├── Main.java
-├── menu/
-│   └── ConsoleMenu.java
-│   └── MenuOption.java
-├── model/
-│   ├── Animal.java
-│   ├── Dog.java
-│   ├── Cat.java
-│   ├── Bird.java
-│   ├── AnimalId.java
-│   └── AdoptionStatus.java
-└── shelter/
-    └── Shelter.java
-```
-## Stretch goals
-- Add a new animal type without modifying existing functionality
-- Allow sorting animals by age or name
-- Validate user input (no empty names, age cannot be negative etc.)
-- Create a generic utility class for searching and filtering collections (Average animal age, Oldest animal, Number of animals of each species etc.)
-- Add adoption history that tracks:
-    - Animal
-    - Adoption Date
-    - Adopter Name
+- Add a new animal to the shelter
+- List all animals
+- Search animals by species
+- Display only animals available for adoption
+- Mark an animal as adopted
+- Validate user input and display informative console messages
+- Added AnimalInputValidator for safe console input handling
+- Added a new animal type without modifying existing functionality
+
+## 📌 Assignment Reference
+
+This project is a solution to the following assignment:
+https://github.com/bonanzaa/acc-2026-java-m3a
